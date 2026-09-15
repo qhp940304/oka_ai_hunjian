@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ site_name }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}上传图片或短视频，一键 AI 生成带货混剪成片{% endblock %}">
+  <link rel="icon" href="/static/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="/static/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/site.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header" role="banner">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="{{ site_name }}首页">
+        <img class="brand-logo" src="/static/logo.png" width="32" height="32" alt="{{ site_name }}">
+        <span class="brand-text">
+          <strong>{{ site_name }}</strong>
+        </span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="/workspace">生成视频</a>
+        <a href="/tasks">我的作品</a>
+        <a href="{{ open_platform_url or 'https://kfz.oookay.cn/docs/quickstart' }}" target="_blank" rel="noopener noreferrer">开发者平台</a>
+      </nav>
+      <div class="header-actions" id="header-actions">
+        <a class="btn btn-ghost" href="/login" id="nav-login">登录</a>
+        <button type="button" class="btn btn-ghost" id="nav-logout" hidden>退出</button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="shell footer-grid">
+      <div>
+        <div class="brand brand-footer">
+          <img class="brand-logo" src="/static/logo.png" width="32" height="32" alt="{{ site_name }}">
+          <span class="brand-text"><strong>{{ site_name }}</strong></span>
+        </div>
+        <p class="footer-desc">上传素材，AI 生成短视频成片。</p>
+      </div>
+      <div>
+        <h2 class="footer-title">功能</h2>
+        <ul>
+          <li><a href="/workspace">生成视频</a></li>
+          <li><a href="/tasks">我的作品</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">支持</h2>
+        <ul>
+          <li><a href="{{ open_platform_url or 'https://kfz.oookay.cn/docs/quickstart' }}" target="_blank" rel="noopener noreferrer">开发者平台</a></li>
+          <li><a href="/tasks">任务记录</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <p>© {{ site_name }}. 保留所有权利.</p>
+    </div>
+  </footer>
+  <script>
+    window.__SITE__ = {{ {
+      "name": site_name,
+      "loggedInHint": logged_in,
+      "openPlatformUrl": open_platform_url
+    } | tojson }};
+  </script>
+  <script src="/static/js/site.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

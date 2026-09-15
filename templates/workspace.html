@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}生成视频 · {{ site_name }}{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="shell workspace workspace-solo">
+    <div class="panel main-panel" id="task-panel" data-web-token="{{ web_token }}">
+      <h2>AI 生成视频</h2>
+      <p class="muted" id="guest-hint">登录后即可上传素材并生成视频。<a href="/login">去登录 / 注册</a></p>
+      <p class="muted" id="task-desc" hidden>上传商品图或短视频片段，提交后进入排队生成。成片可在「我的作品」下载。</p>
+
+      <div id="task-body" hidden>
+        <div class="form-row">
+          <label>图片素材</label>
+          <div class="upload-zone" data-kind="images">
+            <input id="images-file" class="upload-input" type="file" accept="image/*" multiple>
+            <div class="upload-zone-inner">
+              <strong>选择图片</strong>
+              <span>支持多选，单张 ≤15MB</span>
+              <button type="button" class="btn btn-primary upload-trigger" data-for="images-file">选择图片</button>
+            </div>
+          </div>
+          <ul class="file-list" id="images-list"></ul>
+        </div>
+
+        <div class="form-row">
+          <label>视频素材</label>
+          <div class="upload-zone" data-kind="videos">
+            <input id="videos-file" class="upload-input" type="file" accept="video/*" multiple>
+            <div class="upload-zone-inner">
+              <strong>选择视频</strong>
+              <span>建议单段 4～6 秒</span>
+              <button type="button" class="btn btn-primary upload-trigger" data-for="videos-file">选择视频</button>
+            </div>
+          </div>
+          <ul class="file-list" id="videos-list"></ul>
+        </div>
+
+        <label class="check-row">
+          <input type="checkbox" id="task-boost">
+          <span>加速生成（优先排队）</span>
+        </label>
+
+        <button type="button" class="btn btn-primary btn-lg" id="btn-create">开始生成</button>
+      </div>
+      <div class="msg" id="task-msg" role="status"></div>
+      <div class="queue-box" id="queue-box" hidden></div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/workspace.js"></script>
+{% endblock %}

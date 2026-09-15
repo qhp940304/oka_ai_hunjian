@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}{{ site_name }} · AI 短视频生成{% endblock %}
+{% block content %}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="shell hero-inner">
+    <div class="hero-brand-row">
+      <img class="hero-logo" src="/static/logo.png" width="48" height="48" alt="{{ site_name }}">
+      <p class="hero-brand">{{ site_name }}</p>
+    </div>
+    <h1 id="hero-title">把素材变成大片<br>一键 AI 生成短视频</h1>
+    <p class="hero-lead">邮箱注册即用 · 上传素材即可出片 · 排队与下载实时可查</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="/workspace">立即生成</a>
+      <a class="btn btn-ghost btn-lg" href="/tasks">我的作品</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="capabilities" aria-labelledby="cap-title">
+  <div class="shell">
+    <header class="section-head">
+      <p class="eyebrow">产品能力</p>
+      <h2 id="cap-title">从上传到下载，一站完成出片</h2>
+      <p>流程清晰、上手简单，适合带货与内容创作。</p>
+    </header>
+    <div class="cap-grid">
+      <article class="cap-item">
+        <h3>素材成片</h3>
+        <p>上传图片或短视频片段，AI 自动生成可发布的混剪成片。</p>
+        <a href="/workspace">去生成</a>
+      </article>
+      <article class="cap-item">
+        <h3>排队与状态</h3>
+        <p>任务排队、生成进度一目了然，成片完成后即可下载。</p>
+        <a href="/tasks">我的作品</a>
+      </article>
+      <article class="cap-item">
+        <h3>加速优先</h3>
+        <p>可选加速，任务优先进入处理队列，更快拿到成片。</p>
+        <a href="/workspace">去生成</a>
+      </article>
+      <article class="cap-item">
+        <h3>作品管理</h3>
+        <p>历史任务集中查看，成功后限时下载成片。</p>
+        <a href="/tasks">查看作品</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" aria-labelledby="flow-title">
+  <div class="shell">
+    <header class="section-head">
+      <p class="eyebrow">使用流程</p>
+      <h2 id="flow-title">四步完成出片</h2>
+    </header>
+    <ol class="steps">
+      <li>
+        <span class="step-num">01</span>
+        <h3>注册账号</h3>
+        <p>邮箱注册登录，即可开始使用。</p>
+      </li>
+      <li>
+        <span class="step-num">02</span>
+        <h3>上传素材</h3>
+        <p>选择商品图或短视频片段。</p>
+      </li>
+      <li>
+        <span class="step-num">03</span>
+        <h3>AI 生成</h3>
+        <p>提交任务，可选择加速优先排队。</p>
+      </li>
+      <li>
+        <span class="step-num">04</span>
+        <h3>下载成片</h3>
+        <p>在「我的作品」中下载，限时保留。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="sol-title">
+  <div class="shell">
+    <header class="section-head">
+      <p class="eyebrow">适合场景</p>
+      <h2 id="sol-title">从试用到稳定出片</h2>
+    </header>
+    <div class="sol-row">
+      <article>
+        <h3>内容生产</h3>
+        <p>批量素材自动成片，降低人工剪辑成本。</p>
+        <ul>
+          <li>图片 + 视频混投</li>
+          <li>异步排队处理</li>
+          <li>成片导出可下载</li>
+        </ul>
+      </article>
+      <article>
+        <h3>带货创作</h3>
+        <p>商品图与短片段快速成片，适合日常内容更新。</p>
+        <ul>
+          <li>多图混剪</li>
+          <li>短视频片段拼接</li>
+          <li>可选加速出片</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band" aria-labelledby="cta-title">
+  <div class="shell cta-inner">
+    <h2 id="cta-title">准备好生成了吗？</h2>
+    <p>注册后即可上传素材，先跑通一条成片再继续创作。</p>
+    <a class="btn btn-primary btn-lg" href="/workspace">开始生成</a>
+  </div>
+</section>
+{% endblock %}

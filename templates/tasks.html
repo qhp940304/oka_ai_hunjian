@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}我的作品 · {{ site_name }}{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="shell">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>我的作品</h2>
+        <div class="filters">
+          <select id="status-filter">
+            <option value="">全部状态</option>
+            <option value="pending">排队中</option>
+            <option value="running">生成中</option>
+            <option value="success">已完成</option>
+            <option value="failed">失败</option>
+          </select>
+          <button type="button" class="btn btn-ghost" id="btn-reload">刷新</button>
+          <a class="btn btn-primary" href="/workspace">继续生成</a>
+        </div>
+      </div>
+      <div id="login-hint" class="empty" hidden>
+        <p>请先 <a href="/login">登录</a> 后查看作品</p>
+      </div>
+      <div id="tasks-empty" class="empty" hidden>
+        <p>还没有作品，去 <a href="/workspace">生成第一条视频</a></p>
+      </div>
+      <ul class="task-list" id="task-list"></ul>
+      <div class="msg" id="tasks-msg" role="status"></div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/tasks.js"></script>
+{% endblock %}

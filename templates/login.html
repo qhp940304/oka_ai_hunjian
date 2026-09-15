@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}登录 / 注册 · {{ site_name }}{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="shell narrow">
+    <div class="panel auth-panel">
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab active" data-tab="login">登录</button>
+        <button type="button" class="tab" data-tab="register">注册</button>
+      </div>
+      <form id="auth-form" data-web-token="{{ web_token }}">
+        <div class="form-row">
+          <label for="email">邮箱</label>
+          <input id="email" name="email" type="email" required autocomplete="username" placeholder="you@example.com">
+        </div>
+        <div class="form-row" id="code-row" hidden>
+          <label for="email-code">邮箱验证码</label>
+          <div class="code-row">
+            <input id="email-code" name="code" inputmode="numeric" maxlength="6" placeholder="6 位验证码" autocomplete="one-time-code">
+            <button type="button" class="btn btn-ghost" id="btn-send-code">获取验证码</button>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="password">密码</label>
+          <input id="password" name="password" type="password" required minlength="6" autocomplete="current-password" placeholder="至少 6 位">
+        </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">网站</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">提交</button>
+        <div class="msg" id="auth-msg" role="status"></div>
+      </form>
+      <p class="muted center">注册后即可上传素材，体验 AI 生成视频</p>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/auth.js"></script>
+{% endblock %}
