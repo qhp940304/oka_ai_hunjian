@@ -34,7 +34,6 @@
 ## 快速开始
 
 ```bash
-cd C端网站
 python -m venv .venv
 # Windows
 .venv\Scripts\activate
