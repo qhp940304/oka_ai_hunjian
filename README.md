@@ -63,7 +63,3 @@ static/        样式与脚本
 run.py         启动入口
 ```
 
-## 开源注意
-
-- 不要把真实的 `OPEN_PLATFORM_API_KEY`、数据库密码、SMTP 授权码提交到 GitHub
-- `.env` 已在 `.gitignore` 中，请使用 `.env.example` 作为模板
